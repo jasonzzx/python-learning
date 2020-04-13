@@ -1,7 +1,6 @@
 import pyautogui, time
 
 time.sleep(5)
-pyautogui.click()
 distance = 500
 
 while distance > 0:

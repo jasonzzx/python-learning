@@ -1,15 +1,16 @@
-import pyautogui, time
+import pyautogui, time, sys
 
-pyautogui.PAUSE = 1
 pyautogui.FAILSAFE = True
 
-print(pyautogui.size())
-
-while True:
-    pyautogui.moveTo(100, 100, duration=1)
-    pyautogui.moveTo(800, 100, duration=1)
-    pyautogui.moveTo(800, 800, duration=1)
-    pyautogui.moveTo(100, 800, duration=1)
-    pyautogui.moveTo(100, 100, duration=1)
-    pyautogui.click()
-    time.sleep(3)
+print("Mouse Move Start. Repeat every 10 seconds.")
+try:
+    while True:
+        pyautogui.moveTo(100, 100, duration=1)
+        pyautogui.moveTo(800, 100, duration=1)
+        pyautogui.moveTo(800, 800, duration=1)
+        pyautogui.moveTo(100, 800, duration=1)
+        pyautogui.moveTo(100, 100, duration=1)
+        time.sleep(10)
+except (pyautogui.FailSafeException, KeyboardInterrupt):
+    print("Mouse Move Terminate.")
+    sys.exit(0)
